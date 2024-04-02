@@ -1,0 +1,13 @@
+.container__pesquisar {
+    margin-top: -1rem;
+    margin-bottom: 1rem;
+
+    
+}
+
+.container__pesquisar-input {
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    width: 20rem;
+    height: 2rem;
+}
