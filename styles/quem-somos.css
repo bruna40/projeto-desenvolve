@@ -1,22 +1,26 @@
-.container.quem-somos {
-    padding-top: 2rem;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+.quem-somos.container {
+  --paddingTop: 4.75rem;
+  margin-top: calc(var(--paddingTop) / -2);
+  padding-bottom: 2rem;
+  padding-top: var(--paddingTop);
+  
 }
 
 .text {
-    width:100%
+  display: flex;
+  flex-direction: column;
+  
 }
 
-.text h1 {
-    max-width: 20ch;
-    margin-inline: auto;
+.text h2 {
+  font-size: 2rem;
+  font-weight: 300;
+  line-height: 1.2;
+  opacity: 0.87;
+}
 
-    line-height: 1.2;
-    opacity: 0.87;
-    font-size: 2rem;
-    font-weight: 300;
+.description > p + p {
+  margin-top: 1.375rem;
 }
 
 
@@ -32,39 +36,25 @@
     margin-inline: auto;
 }
 
-@media screen and (min-width: 48em) {
+@media (min-width: 48em) {
     
-    .quem-somos {
-      
-      padding-bottom: 1rem;
-    }
-  
-    .text {
-      flex-direction: row;
-      width: 100%;
-      max-width: 29.375rem;
-    }
-}
+  .quem-somos.container {
+    margin-top: 0;
+  }
 
-@media screen and (min-width: 80em) {
-    .quem-somos {
-      padding-top: 1rem;
-      padding-bottom: 0;
-      
-      gap: 1.875rem;
-    }
-  
-    .text {
-      flex-direction: row;
-      align-items: center;
-      width: 40%;
-    }
-  
-    .description {
-      font-size: 1.125rem;
-      line-height: 1.5rem;
-      opacity: 0.6;
-    }
+  .text h2 {
+    font-size: 2.5rem;
   }
   
+  .text {
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
+    gap: 22rem;
+  }
+    
+}
+
   
