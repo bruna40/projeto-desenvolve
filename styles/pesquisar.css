@@ -1,13 +1,24 @@
-.container__pesquisar {
+.container.pesquisar {
     margin-top: -1rem;
-    margin-bottom: 1rem;
-
-    
+    margin-bottom: -1rem;
 }
 
-.container__pesquisar-input {
+.pesquisar-input {
+    width: 100%;
+    padding: 0.5rem;
     border: 1px solid #ccc;
-    border-radius: 5px;
-    width: 20rem;
-    height: 2rem;
+    border-radius: 0.25rem;
+    font-size: 1rem;
+    border-radius: 0.25rem;
+}
+
+.pesquisar-input:focus {
+    outline: none;
+    border-color: #007bff;
+}
+
+@media (min-width: 40em) {
+    .pesquisar-input {
+        width: 100%;
+    }
 }
