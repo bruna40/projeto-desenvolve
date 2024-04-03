@@ -9,16 +9,13 @@
     padding: 1rem 0 0.5rem 0;
 }
 
-.swiper {
-    width: 35%;
+.container.swiper {
     margin: 0 auto;
-    
-
 }
 
 
 .swiper-slide {
-    width: calc(50% - 20px); /* Define a largura dos slides para ocupar metade da largura da tela, com margem */
+    width: calc(50% - 20px);
     margin-right: 20px; 
 
 }
@@ -34,70 +31,36 @@
     margin: .5rem 0;
 }
 
-.card__descrição {
-    display: flex;
-    justify-content: space-between;
-    margin-bottom: 0.5rem;
-}
-
-.card__botões {
-    display: flex;
-    justify-content: space-between;
-}
-
-.botões {
-    display: flex;
-}
 
 .card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
     width: 10rem;
-    height: 10rem;
+    max-height: 12rem;
     background: var(--branco);
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
     border-radius: 10px;
     margin: 1rem;
     padding: 1rem;
-}
-
-.card img {
-    width: 100%;
-    height: 70%;
-    object-fit: cover;
-    border-radius: 10px;
 
 }
 
-.descrição__titulo {
-    color: var(--laranja);
-    font-weight: 700;
+.card h3 {
+    font-size: 16px;
+    font-weight: 500;
+    margin-top: 0.5rem;
+    text-transform: uppercase;
 }
 
-.descrição__titulo-livro {
-    color: var(--azul);
-    font-size: 18px;
-    font-weight: 700;
-    margin: 0.5rem 0;
+.precoAntigo {
+    text-decoration: line-through;
 }
 
-.descrição__texto {
-    font-size: 14px;
-}
-
-.botões__itrem {
-    margin: 0 0.5rem;
-}
-
-.botões__ancora {
-    background-color: var(--laranja);
-    padding: 1rem 2.2rem;
-    color: var(--branco);
-    font-weight: 700;
-    text-decoration: none;
-}
-
-@media screen and (min-width: 1024px) {
+@media  (min-width: 40em) {
     .swiper-slide {
-        width: calc(33.33% - 20px); /* Define a largura dos slides para ocupar um terço da largura da tela, com margem */
+        width: calc(33.33% - 30px); /* Define a largura dos slides para ocupar um terço da largura da tela, com margem */
         margin-right: 20px; 
     }
     .carrossel__titulo {
@@ -108,10 +71,6 @@
         margin: 2rem 0 3rem 0;
     }
 
-    .swiper {
-        width: 60%;
-    }
-
     .swiper-button-prev,
     .swiper-button-next {
         display: block;
@@ -119,12 +78,12 @@
     }
 
     .card {
-        width: 40%;
+        
         margin: 2rem auto;
     }
 }
 
-@media screen and (min-width: 1728px) {
+@media (min-width: 80em) {
     .carrossel__container {
         display: flex;
         margin: 0 20vw 3rem 20vw;
@@ -135,24 +94,10 @@
         margin: 1rem 0;
     }
 
-    .swiper {
-        width: 50%;
-    }
-
-    .descrição__titulo {
-        font-size: 32px;
-    }
-
-    .descrição__texto {
-        font-size: 16px;
-    }
-
-    .descrição {
-        margin-right: 2rem;
-    }
+ 
 
     .card {
-        width: 60%;
+        width: 80%;
         margin-left: 3rem;
     }
 
