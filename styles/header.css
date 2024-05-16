@@ -73,6 +73,14 @@
     background-color: var(--branco);
 }
 
+.menu {
+    display: none;
+}
+
+.menu.open {
+    display: block;
+}
+
 .menu li {
     position: relative;
 

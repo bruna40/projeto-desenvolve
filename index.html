@@ -39,6 +39,9 @@
                     <li >
                         <a href="#contato">Contato</a>
                     </li>
+                    <li>
+                        <a href="./login.html">Login</a>
+                    </li>
                     
                 </ul>
             </nav>
@@ -183,32 +186,6 @@
 
     </footer>
     <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
-    <script>
-        const swiper = new Swiper('.swiper', {
-            slidesPerView: 'auto',
-            pagination: {
-                el: '.swiper-pagination',
-                type: 'bullets',
-            },
-            navigation: {
-                nextEl: '.swiper-button-next',
-                prevEl: '.swiper-button-prev',
-              },
-        });
-
-        const btnMobile = document.getElementById('buttonMobile');
-        const btnIcon = document.getElementById('buttonIcon');
-
-        function toggleMobile() {
-            const nav = document.getElementById('navBar');
-            nav.classList.toggle('active');
-        }
-        btnMobile.addEventListener('click', toggleMobile);
-
-        btnIcon.addEventListener('click', () => {
-            btnIcon.classList.toggle('closeIcon');
-        });
-       
-    </script>
+    <script src="js/main.js"></script>
 </body>
 </html>
