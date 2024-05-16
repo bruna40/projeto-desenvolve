@@ -5,7 +5,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 85vh;
+    height: 82vh;
     background: var(--azul-degrade);
 }
 
@@ -27,30 +27,31 @@
 .loginContainer form {
     display: flex;
     flex-direction: column;
-    height: 40vh;
-}
-
-.loginContainer form .input-group {
+    height: 30vh;
     margin-bottom: 15px;
     width: 100%;
     text-align: left;
 }
 
-.loginContainer form .input-group label {
+
+
+label {
     display: block;
     margin-bottom: 5px;
     font-weight: bold;
+    
 }
 
-.loginContainer form .input-group input {
+ input {
     width: 100%;
     padding: 10px;
     border: 1px solid #ccc;
     border-radius: 4px;
     box-sizing: border-box;
+    margin-top: 0.5rem;
 }
 
-button {
+.buttonLogin {
     width: 100%;
     padding: 10px;
     background-color: #007BFF;
@@ -60,13 +61,14 @@ button {
     font-size: 16px;
     cursor: pointer;
     transition: background-color 0.3s;
+    margin-bottom: 2rem;
 }
 
-button:hover {
+.buttonLogin:hover {
     background-color: #0056b3;
 }
 
-button:focus {
+.buttonLogin:focus {
     outline: none;
     box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.5);
 }
