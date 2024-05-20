@@ -34,24 +34,13 @@
                         <a href="#produtos">Produtos</a>
                     </li>
                     <li >
-                        <a href="#promocoes">Promoções</a>
-                    </li>
-                    <li >
                         <a href="#contato">Contato</a>
                     </li>
-                    <!-- <li>
-                        Adicionar, quando tiver o banco de dados
-                        <a href="./login.html">Login</a>
-                    </li> -->
-                    <li>
-                        <a href="./cart.html">Carrinho de compras</a>
-                    </li>
-                    
                 </ul>
             </nav>
         </div>
-        
-       
+
+
     </header>
 
     <main>
@@ -70,25 +59,38 @@
         </section>
         <section id="produtos" class="produtos">
             <div class="container layout">
-                <h2>Produtos</h2>
-                <div class="itens" id="itens">
-                    <div class="skeleton-item">
-                        <div class="skeleton-title"></div>
-                        <div class="skeleton-price"></div>
-                        <div class="skeleton-button"></div>
+                <h2>Produtos em destaque</h2>
+                <div class="itens">
+                    <div class="item">
+                        <p class="titulo">Shampoo radiante</p>
+                        <p class="preco">R$ 40,00</p>
+                        <button class="botao">Comprar</button>
                     </div>
-                    <div class="skeleton-item">
-                        <div class="skeleton-title"></div>
-                        <div class="skeleton-price"></div>
-                        <div class="skeleton-button"></div>
+                    <div class="item">
+                        <p class="titulo">Condicionador realça cacho</p>
+                        <p class="preco">R$ 10,00</p>
+                        <button class="botao">Comprar</button>
                     </div>
-                    <div class="skeleton-item">
-                        <div class="skeleton-title"></div>
-                        <div class="skeleton-price"></div>
-                        <div class="skeleton-button"></div>
+                    <div class="item">
+                        <p class="titulo">Perfume Moça feliz</p>
+                        <p class="preco">R$ 89,90</p>
+                        <button class="botao">Comprar</button>
                     </div>
-                </div>
-                <button id="verMais" class="botaoVerMais" style="display: none;">Ver mais</button>
+                    <div class="item">
+                        <p class="titulo">Base magica</p>
+                        <p class="preco">R$ 50,00</p>
+                        <button class="botao">Comprar</button>
+                    </div>
+                    <div class="item">
+                        <p class="titulo">Creme  pele bonita</p>
+                        <p class="preco">R$ 70,00</p>
+                        <button class="botao">Comprar</button>
+                    </div>
+                    <div class="item">
+                        <p class="titulo">Esmalte Unha Forte</p>
+                        <p class="preco">R$ 5,00</p>
+                        <button class="botao">Comprar</button>
+                    </div>s</button>
             </div>
         </section>
         <section class="carrossel" id="promocoes">
@@ -174,6 +176,32 @@
 
     </footer>
     <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
-    <script  type="module" src="js/main.js"></script>
+    <script>
+        const swiper = new Swiper('.swiper', {
+            slidesPerView: 'auto',
+            pagination: {
+                el: '.swiper-pagination',
+                type: 'bullets',
+            },
+            navigation: {
+                nextEl: '.swiper-button-next',
+                prevEl: '.swiper-button-prev',
+              },
+        });
+
+        const btnMobile = document.getElementById('buttonMobile');
+        const btnIcon = document.getElementById('buttonIcon');
+
+        function toggleMobile() {
+            const nav = document.getElementById('navBar');
+            nav.classList.toggle('active');
+        }
+        btnMobile.addEventListener('click', toggleMobile);
+
+        btnIcon.addEventListener('click', () => {
+            btnIcon.classList.toggle('closeIcon');
+        });
+
+    </script>
 </body>
 </html>
