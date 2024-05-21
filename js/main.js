@@ -28,4 +28,4 @@ btnIcon.addEventListener('click', () => {
 
 document.addEventListener('DOMContentLoaded', getProducts);
 document.getElementById('verMais').addEventListener('click', showProducts);
-document.getElementById('pesquisar-input').addEventListener('input', filterProducts);
+document.getElementById('filtro').addEventListener('input', filterProducts);
