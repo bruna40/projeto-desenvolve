@@ -3,7 +3,7 @@ let displayedProducts = [];
 let productsShown = 0;
 const productsPerPage = 5;
 const URL = 'https://makeup-api.herokuapp.com/api/v1/products.json';
-let cart = [];
+
 
 function shuffleArray(array) {
     for (let i = array.length - 1; i > 0; i--) {
@@ -12,29 +12,6 @@ function shuffleArray(array) {
     }
 }
 
-function addToCart(index) {
-    const product = displayedProducts[index];
-    cart.push(product);
-    updateCart();
-}
-
-function updateCart() {
-    const cartDiv = document.getElementById('carrinhoItens');
-    cartDiv.innerHTML = '';
-    let total = 0;
-    
-    cart.forEach((product, index) => {
-        const itemDiv = document.createElement('div');
-        itemDiv.innerHTML = `
-            ${product.name} - ${product.price} 
-            <button onclick="removeFromCart(${index})">Remover</button>
-        `;
-        cartDiv.appendChild(itemDiv);
-        total += parseFloat(product.price);
-    });
-
-    document.getElementById('total').innerText = `Total: R$${total.toFixed(2).replace('.', ',')}`;
-}
 
 function showProducts() {
     const contentDiv = document.getElementById('itens');
@@ -57,16 +34,10 @@ function showProducts() {
     contentDiv.appendChild(fragment);
     productsShown += productsPerPage;
 
-    if (productsShown >= displayedProducts.length) {
-        document.getElementById('verMais').style.display = 'none';
-    } else {
-        document.getElementById('verMais').style.display = 'block';
-    }
+    document.getElementById('verMais').style.display = productsShown >= displayedProducts.length ? 'none' : 'block';
 }
 
 function getProducts() {
-    const contentDiv = document.getElementById('itens');
-
     fetch(URL)
         .then(response => {
             if (!response.ok) {
@@ -78,12 +49,13 @@ function getProducts() {
             allProducts = data;
             shuffleArray(allProducts);
             displayedProducts = [...allProducts];
-            contentDiv.innerHTML = '';
+            productsShown = 0;
+            document.getElementById('itens').innerHTML = '';
             showProducts();
         })
         .catch(error => {
             console.error('There was a problem with the fetch operation:', error);
-            contentDiv.innerHTML = 'There was an error fetching the data.';
+            document.getElementById('itens').innerHTML = 'There was an error fetching the data.';
         });
 }
 
@@ -95,8 +67,8 @@ function filterProducts() {
     showProducts(); 
 }
 
-
 document.addEventListener('DOMContentLoaded', getProducts);
 document.getElementById('verMais').addEventListener('click', showProducts);
+document.getElementById('filtro').addEventListener('input', filterProducts);
 
-export { getProducts, showProducts, addToCart, updateCart, filterProducts };
+export { getProducts, showProducts, filterProducts };
