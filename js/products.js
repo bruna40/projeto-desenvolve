@@ -1,44 +1,51 @@
-let allProducts = [];
-let displayedProducts = [];
-let productsShown = 0;
+const URL = 'https://back-projeto-desenvolve.onrender.com/products';
 const productsPerPage = 5;
-const URL = 'https://makeup-api.herokuapp.com/api/v1/products.json';
+let currentPage = 1;
 
-
-function shuffleArray(array) {
-    for (let i = array.length - 1; i > 0; i--) {
-        const j = Math.floor(Math.random() * (i + 1));
-        [array[i], array[j]] = [array[j], array[i]];
-    }
-}
-
-
-function showProducts() {
+// Função para exibir produtos
+function showProducts(products) {
     const contentDiv = document.getElementById('itens');
     const fragment = document.createDocumentFragment();
-    
-    for (let i = productsShown; i < productsShown + productsPerPage && i < displayedProducts.length; i++) {
-        const product = displayedProducts[i];
-        const productDiv = document.createElement('div');
-        productDiv.classList.add('item');
-        const formattedPrice = `R$ ${parseFloat(product.price).toFixed(2).replace('.', ',')}`;
-        productDiv.innerHTML = `
-            <p class="titulo">${product.name}</p>
-            <img src="${product.api_featured_image}" alt="${product.name}" class="imagem">
-            <p class="preco">${formattedPrice}</p>
-            <button class="botao" onclick="addToCart(${i})">Comprar</button>
-        `;
-        fragment.appendChild(productDiv);
+
+    contentDiv.innerHTML = '';
+
+    if (products.length === 0) {
+        if (currentPage === 1) {
+            contentDiv.innerHTML = '<p>No products found.</p>';
+        }
+    } else {
+        products.forEach(product => {
+            const productDiv = document.createElement('div');
+            productDiv.classList.add('item');
+
+            const price = parseFloat(product.price);
+
+            const formattedPrice = price === 0
+                ? '<p class="preco esgotado">Esgotado</p>'
+                : `R$ ${price.toFixed(2).replace('.', ',')}`;
+
+            if (price === 0) {
+                productDiv.classList.add('esgotado');
+            }
+
+            const productHTML = `
+                <p class="titulo">${product.name}</p>
+                <img src="${product.image_link}" alt="${product.name}" class="imagem" onerror="this.style.display='none';">
+                ${formattedPrice}
+                <button class="botao" onclick="addToCart(${product.id})">Comprar</button>
+            `;
+            productDiv.innerHTML = productHTML;
+            fragment.appendChild(productDiv);
+        });
+        contentDiv.appendChild(fragment);
     }
-
-    contentDiv.appendChild(fragment);
-    productsShown += productsPerPage;
-
-    document.getElementById('verMais').style.display = productsShown >= displayedProducts.length ? 'none' : 'block';
 }
 
 function getProducts() {
-    fetch(URL)
+    const url = `${URL}?page=${currentPage}&limit=${productsPerPage}`;
+    console.log('Fetching products from URL:', url);
+
+    fetch(url)
         .then(response => {
             if (!response.ok) {
                 throw new Error('Network response was not ok ' + response.statusText);
@@ -46,12 +53,15 @@ function getProducts() {
             return response.json();
         })
         .then(data => {
-            allProducts = data;
-            shuffleArray(allProducts);
-            displayedProducts = [...allProducts];
-            productsShown = 0;
-            document.getElementById('itens').innerHTML = '';
-            showProducts();
+            console.log('API response:', data);
+
+            if (data.products && Array.isArray(data.products)) {
+                showProducts(data.products);
+
+                currentPage++;
+            } else {
+                throw new Error('Expected an array of products or an object containing an array of products');
+            }
         })
         .catch(error => {
             console.error('There was a problem with the fetch operation:', error);
@@ -59,16 +69,12 @@ function getProducts() {
         });
 }
 
-function filterProducts() {
-    const filterValue = document.getElementById('filtro').value.toLowerCase();
-    displayedProducts = allProducts.filter(product => product.name.toLowerCase().includes(filterValue));
-    productsShown = 0; 
-    document.getElementById('itens').innerHTML = '';
-    showProducts(); 
+
+function handleVerMaisClick() {
+    getProducts();
 }
 
-document.addEventListener('DOMContentLoaded', getProducts);
-document.getElementById('verMais').addEventListener('click', showProducts);
-document.getElementById('filtro').addEventListener('input', filterProducts);
 
-export { getProducts, showProducts, filterProducts };
+getProducts();
+
+export { getProducts, handleVerMaisClick };

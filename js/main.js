@@ -1,4 +1,5 @@
-import { getProducts, showProducts, filterProducts } from './products.js';
+import { getProducts, handleVerMaisClick } from './products.js';
+
 
 
 const swiper = new Swiper('.swiper', {
@@ -27,5 +28,23 @@ btnIcon.addEventListener('click', () => {
 });
 
 document.addEventListener('DOMContentLoaded', getProducts);
-document.getElementById('verMais').addEventListener('click', showProducts);
-document.getElementById('filtro').addEventListener('input', filterProducts);
+document.addEventListener('DOMContentLoaded', () => {
+    console.log('DOM Loaded');
+    getProducts();
+
+    const verMaisButton = document.getElementById('verMais');
+    if (verMaisButton) {
+        console.log('Ver Mais Button Found');
+        verMaisButton.addEventListener('click', () => {
+            console.log('Ver Mais Button Clicked');
+            if (typeof handleVerMaisClick === 'function') {
+                handleVerMaisClick();
+            } else {
+                console.error('handleVerMaisClick is not a function');
+            }
+        });
+    } else {
+        console.error('Ver Mais Button not found');
+    }
+});
+

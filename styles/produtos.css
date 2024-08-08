@@ -115,6 +115,17 @@ img {
     height: 30px;
 }
 
+.item.esgotado {
+    background-color: #f0f0f0; /* Cor de fundo cinza claro para produtos esgotados */
+    border: 1px solid #d0d0d0; /* Borda cinza clara */
+    opacity: 0.6; /* Reduz a opacidade para indicar indisponibilidade */
+}
+
+.preco.esgotado {
+    color: #999; /* Cor cinza para indicar esgotado */
+    font-weight: bold; /* Deixa o texto em negrito */
+}
+
 @keyframes pulse {
     0% {
         background-color: #ddd;
