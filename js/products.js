@@ -1,16 +1,14 @@
 const URL = 'https://back-projeto-desenvolve.onrender.com/products';
-const productsPerPage = 5;
-let currentPage = 1;
+let productsPerPage = 5; 
+let currentPage = 1; 
+let totalLoaded = 5; 
 
-// Função para exibir produtos
 function showProducts(products) {
     const contentDiv = document.getElementById('itens');
     const fragment = document.createDocumentFragment();
 
-    contentDiv.innerHTML = '';
-
     if (products.length === 0) {
-        if (currentPage === 1) {
+        if (totalLoaded === 0) {
             contentDiv.innerHTML = '<p>No products found.</p>';
         }
     } else {
@@ -19,7 +17,6 @@ function showProducts(products) {
             productDiv.classList.add('item');
 
             const price = parseFloat(product.price);
-
             const formattedPrice = price === 0
                 ? '<p class="preco esgotado">Esgotado</p>'
                 : `R$ ${price.toFixed(2).replace('.', ',')}`;
@@ -58,6 +55,8 @@ function getProducts() {
             if (data.products && Array.isArray(data.products)) {
                 showProducts(data.products);
 
+                totalLoaded += data.products.length;
+
                 currentPage++;
             } else {
                 throw new Error('Expected an array of products or an object containing an array of products');
@@ -69,12 +68,15 @@ function getProducts() {
         });
 }
 
-
 function handleVerMaisClick() {
     getProducts();
 }
+document.addEventListener('DOMContentLoaded', () => {
+    currentPage = 1;
+    totalLoaded = 5; 
+    productsPerPage = 5; 
+    getProducts();   
+});
 
-
-getProducts();
 
 export { getProducts, handleVerMaisClick };
