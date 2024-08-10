@@ -1,6 +1,4 @@
-# Bonita cosmeticos
-
-## Projeto desenvolvido duranteo curso desenvolve
+# 3 Projeto Desenvolve - Bonita Cosméticos
 
 ### Sobre o projeto
 O projeto Bonita Cosméticos é um site que oferece uma ampla variedade de produtos de beleza. Com uma interface intuitiva e recursos avançados de pesquisa e filtragem. O site é voltado para pessoas interessadas em cuidados pessoais e beleza, oferecendo produtos de alta qualidade e marcas renomadas. Explore nossa coleção de cosméticos, produtos para cuidados com a pele, maquiagem e muito mais!
@@ -27,3 +25,6 @@ git clone git@github.com:bruna40/projeto-desenvolve.git
 - Gerenciamento Eficiente do Estado: Implementação de funções para controlar o estado da página, como showProducts, que agora lida com a exibição de produtos e esqueleto de carregamento de maneira mais eficiente.
 - Esqueleto de Carregamento: Adição de esqueleto de carregamento (skeleton screen) para melhorar a experiência visual enquanto os dados estão sendo carregados.
 - Paginação e Carregamento Progressivo: Ajustes para garantir que a função de "Ver Mais" carregue e adicione produtos de forma dinâmica e eficiente.
+
+
+Repositório Backend: https://github.com/bruna40/back-projeto-desenvolve
