@@ -16,9 +16,14 @@ git clone git@github.com:bruna40/projeto-desenvolve.git
 - CSS
 - JavaScript
 
-### Branchs
-
-- [main](https://github.com/bruna40/projeto-desenvolve/tree/main): Branch principal contendo a versão final integrada dos projetos.
-- [1-projeto](https://github.com/bruna40/projeto-desenvolve/tree/1-projeto): Primeiro projeto do curso, consistindo em uma página única com HTML e CSS, focado em responsividade.
-- [2-projeto](https://github.com/bruna40/projeto-desenvolve/tree/2-projeto): Segundo projeto do curso, onde foi adicionado JavaScript para interação. A API de produtos foi incorporada para aprimorar a funcionalidade.
-- [3-projeto](https://github.com/bruna40/projeto-desenvolve/tree/2-projeto): Terceiro projeto do curso, que inclui o desenvolvimento do back-end para exibição de produtos. Foi implementada a paginação na API para melhorar o desempenho, resolvendo problemas de lentidão do segundo projeto. Confira o back-end [aqui](https://github.com/bruna40/back-projeto-desenvolve)
+### Funcionalidades
+- Interface Intuitiva: Layout projetado para facilitar a navegação e a visualização dos produtos.
+- Pesquisa e Filtragem Avançada: Permite aos usuários pesquisar produtos por nome,com resultados atualizados em tempo real.
+- Carregamento Dinâmico de Produtos: Produtos são carregados de forma dinâmica através de uma API, melhorando a performance e a experiência do usuário.
+- Paginação: Implementada para otimizar o carregamento dos produtos e melhorar o desempenho da página. A paginação carrega um número específico de produtos por vez, reduzindo o tempo de carregamento inicial e a sobrecarga do servidor.
+### Melhorias e Alterações
+- Integração com API: A comunicação com o backend é feita via API para obter dados dos produtos. A API permite a obtenção de produtos com suporte a filtros e paginação.
+- Otimização do JavaScript: Alterações significativas nas regras de JavaScript para suportar a paginação e melhorar a experiência do usuário, incluindo:
+- Gerenciamento Eficiente do Estado: Implementação de funções para controlar o estado da página, como showProducts, que agora lida com a exibição de produtos e esqueleto de carregamento de maneira mais eficiente.
+- Esqueleto de Carregamento: Adição de esqueleto de carregamento (skeleton screen) para melhorar a experiência visual enquanto os dados estão sendo carregados.
+- Paginação e Carregamento Progressivo: Ajustes para garantir que a função de "Ver Mais" carregue e adicione produtos de forma dinâmica e eficiente.
