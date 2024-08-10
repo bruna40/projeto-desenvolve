@@ -1,6 +1,4 @@
-import { getProducts, handleVerMaisClick } from './products.js';
-
-
+import { searchProducts, restoreProducts, handleVerMaisClick, getProducts } from './products.js';
 
 const swiper = new Swiper('.swiper', {
     slidesPerView: 'auto',
@@ -11,32 +9,29 @@ const swiper = new Swiper('.swiper', {
     navigation: {
         nextEl: '.swiper-button-next',
         prevEl: '.swiper-button-prev',
-      },
+    },
 });
 
 const btnMobile = document.getElementById('buttonMobile');
 const btnIcon = document.getElementById('buttonIcon');
+const searchInput = document.getElementById('search-input');
 
-function toggleMobile() {
+btnMobile.addEventListener('click', () => {
     const nav = document.getElementById('navBar');
     nav.classList.toggle('active');
-}
-btnMobile.addEventListener('click', toggleMobile);
+});
 
 btnIcon.addEventListener('click', () => {
     btnIcon.classList.toggle('closeIcon');
 });
 
-document.addEventListener('DOMContentLoaded', getProducts);
 document.addEventListener('DOMContentLoaded', () => {
-    console.log('DOM Loaded');
     getProducts();
 
-    const verMaisButton = document.getElementById('verMais');
-    if (verMaisButton) {
-        console.log('Ver Mais Button Found');
-        verMaisButton.addEventListener('click', () => {
-            console.log('Ver Mais Button Clicked');
+    const loadMoreButton = document.getElementById('load-more-button');
+    if (loadMoreButton) {
+        loadMoreButton.addEventListener('click', () => {
+            console.log('Load More Button Clicked');
             if (typeof handleVerMaisClick === 'function') {
                 handleVerMaisClick();
             } else {
@@ -44,7 +39,19 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
     } else {
-        console.error('Ver Mais Button not found');
+        console.error('Load More Button not found');
+    }
+
+    if (searchInput) {
+        searchInput.addEventListener('input', () => {
+            const searchTerm = searchInput.value;
+            if (searchTerm) {
+                searchProducts(searchTerm);
+            } else {
+                restoreProducts(); 
+            }
+        });
+    } else {
+        console.error('Search Input not found');
     }
 });
-
