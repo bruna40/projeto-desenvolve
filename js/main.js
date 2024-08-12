@@ -1,4 +1,5 @@
-import { searchProducts, restoreProducts, handleVerMaisClick, getProducts } from './products.js';
+import { searchProducts, restoreProducts, handleVerMaisClick, getProducts, handleBackClick  } from './products.js';
+import { sendEmail } from './emailSend.js'
 
 const swiper = new Swiper('.swiper', {
     slidesPerView: 'auto',
@@ -55,3 +56,6 @@ document.addEventListener('DOMContentLoaded', () => {
         console.error('Search Input not found');
     }
 });
+
+document.getElementById('emailForm').addEventListener('submit', sendEmail)
+document.getElementById('back-button').addEventListener('click', handleBackClick);
