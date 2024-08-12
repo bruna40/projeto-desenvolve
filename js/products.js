@@ -170,4 +170,15 @@ function handleVerMaisClick() {
     getProducts();
 }
 
-export { searchProducts, restoreProducts, handleVerMaisClick, getProducts };
+function handleBackClick() {
+    const contentDiv = document.getElementById('itens');
+
+    if (currentPage > 1) { 
+        currentPage = 1; 
+        totalLoaded = 0; 
+        allProducts = [];
+        contentDiv.innerHTML = '';
+        getProducts();
+    }
+}
+export { searchProducts, restoreProducts, handleVerMaisClick, getProducts, handleBackClick };

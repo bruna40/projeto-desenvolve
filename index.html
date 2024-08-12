@@ -72,7 +72,10 @@
                 <h2>Produtos</h2>
                 <div class="itens" id="itens">
                 </div>
-                <button id="load-more-button" class="container botaoVerMais">Ver Mais</button> 
+                <div class="container botaoProduto">
+                    <button id="back-button" class="botaoVerMenos">Voltar</button>
+                    <button id="load-more-button" class="botaoVerMais">Ver Mais</button>
+                </div>
             </div>
         </section>
         <section class="carrossel" id="promocoes">
@@ -135,12 +138,18 @@
             </div>
         </section>
         <section id="email" class="container contato">
-            <div class="contato__descrição">
-                <h2 class="contato__titulo">Fique por dentro das novidades!</h2>
-                <p class="contato__texto">Atualizações de produtos</p>
-            </div>
-            <input type="email" placeholder="Cadastre seu e-mail" class="contato__email">
+            <form id="emailForm">
+                <div class="contato__descrição">
+                    <h2 class="contato__titulo">Fique por dentro das novidades!</h2>
+                    <p class="contato__texto">Atualizações de produtos</p>
+                </div>
+                <input type="email" placeholder="Cadastre seu e-mail" class="contato__email" id="emailInput">
+                <button type="submit" class="contato__botao">Enviar</button>
+            </form>
+            <div id="successMessage" class="message success-message hide"></div>
+            <div id="errorMessage" class="message error-message hide"></div>
         </section>
+        
     </main>
     <footer class="container rodape" id="contato">
         <h2 class="rodape__titulo">Desenvolvido por Bruna Santiago</h2>

@@ -12,13 +12,30 @@ img {
     width: 50%;
     object-fit: cover;
 }
+
+.botaoProduto {
+    display: flex;
+    justify-content: center; 
+    gap: 1em; 
+    margin-top: 1em;
+}
+
+.botaoVerMenos {
+    color: #007bff;
+    border: 1px solid var(--azul-degrade);
+    padding: 0.5em 1em;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+
 .botaoVerMais {
     color: #007bff;
     background: white;
     border: 1px solid var(--azul-degrade);
     border-radius: 5px;
-    width: 90%;
-    
+    padding: 0.5em 1em;
+
 }
 
 .layout h2 {
@@ -116,14 +133,14 @@ img {
 }
 
 .item.esgotado {
-    background-color: #f0f0f0; /* Cor de fundo cinza claro para produtos esgotados */
-    border: 1px solid #d0d0d0; /* Borda cinza clara */
-    opacity: 0.6; /* Reduz a opacidade para indicar indisponibilidade */
+    background-color: #f0f0f0;
+    border: 1px solid #d0d0d0;
+    opacity: 0.6;
 }
 
 .preco.esgotado {
-    color: #999; /* Cor cinza para indicar esgotado */
-    font-weight: bold; /* Deixa o texto em negrito */
+    color: #999;
+    font-weight: bold;
 }
 
 @keyframes pulse {
