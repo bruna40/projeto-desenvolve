@@ -1,5 +1,5 @@
 import { searchProducts, restoreProducts, handleVerMaisClick, getProducts, handleBackClick  } from './products.js';
-import { sendEmail } from './emailSend.js'
+import { sendEmail, validateEmailInput } from './emailSend.js'
 
 const swiper = new Swiper('.swiper', {
     slidesPerView: 'auto',
@@ -59,3 +59,5 @@ document.addEventListener('DOMContentLoaded', () => {
 
 document.getElementById('emailForm').addEventListener('submit', sendEmail)
 document.getElementById('back-button').addEventListener('click', handleBackClick);
+document.getElementById('emailInput').addEventListener('input', validateEmailInput);
+validateEmailInput();

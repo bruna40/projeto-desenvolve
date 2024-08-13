@@ -51,7 +51,12 @@
     cursor: pointer;
     transition: background-color 0.3s, transform 0.2s;
     margin-top: 1em;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); 
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    min-width: 150px;
+    min-height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .contato__botao:hover {
@@ -62,6 +67,15 @@
 .contato__botao:active {
     background-color: var(--azul);
     transform: scale(0.95);
+}
+
+
+.contato__botao:disabled {
+    background-color: #ccc; 
+    color: #666; 
+    cursor: not-allowed; 
+    box-shadow: none;
+    transform: none; 
 }
 
 
@@ -97,6 +111,31 @@
     opacity: 0;
     transform: translateY(-20px);
   }
+
+
+.loader {
+    border: 4px solid #f3f3f3; 
+    border-top: 4px solid #fff; 
+    border-radius: 50%;
+    width: 24px;
+    height: 24px;
+    animation: spin 1s linear infinite;
+    position: absolute;
+    top: 50%;
+    right: 1em;
+    transform: translateY(-50%);
+    display: none;
+    top: 30%;
+    left: 40%;
+}
+
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+
 @media (min-width: 80em) {
     .container.contato {
         max-width: 800px;

@@ -124,8 +124,8 @@
                         <div class="swiper-slide">
                             <div class="card">
                                 <h3>Creme </h3>
-                                <p class="precoAntigo">De: R$ 25,00</p>
-                                <p>Por: R$ 28,00</p>
+                                <p class="precoAntigo">De: R$ 28,00</p>
+                                <p>Por: R$ 25,00</p>
                                 <button class="botao">Comprar</button>
                             </div>
                         </div>
@@ -143,8 +143,11 @@
                     <h2 class="contato__titulo">Fique por dentro das novidades!</h2>
                     <p class="contato__texto">Atualizações de produtos</p>
                 </div>
-                <input type="email" placeholder="Cadastre seu e-mail" class="contato__email" id="emailInput">
-                <button type="submit" class="contato__botao">Enviar</button>
+                <input type="email" placeholder="Cadastre seu e-mail" class="contato__email" id="emailInput" required>
+                <button id="submitBtn" class="contato__botao"  type="submit" disabled>
+                    <span id="buttonText">Enviar</span>
+                    <div id="loader" class="loader"></div>
+                </button>
             </form>
             <div id="successMessage" class="message success-message hide"></div>
             <div id="errorMessage" class="message error-message hide"></div>
